@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-03 01:43+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: hockey_django_project/templates/base.html:13
+msgid "Football"
+msgstr ""
+
+#: hockey_django_project/templates/index.html:5
+msgid "Welcome to Football Team"
+msgstr ""
+
+#: hockey_django_project/templates/index.html:6
+msgid "Join to us and take care of your health"
+msgstr ""
+
+#: hockey_django_project/templates/index.html:9
+msgid "Create player"
+msgstr ""
+
+#: hockey_django_project/templates/navbar.html:4
+msgid " Main"
+msgstr ""
+
+#: hockey_django_project/templates/navbar.html:13
+msgid "Players"
+msgstr ""
+
+#: hockey_django_project/templates/navbar.html:16
+msgid "Team"
+msgstr ""
+
+#: hockey_django_project/templates/users/clear_teams_from_players.html:5
+msgid "Clear teams"
+msgstr ""
+
+#: hockey_django_project/templates/users/clear_teams_from_players.html:8
+msgid "Are you sure you want to clear"
+msgstr ""
+
+#: hockey_django_project/templates/users/clear_teams_from_players.html:9
+msgid "Yes, clear"
+msgstr ""
+
+#: hockey_django_project/templates/users/create.html:5
+msgid "New player"
+msgstr ""
+
+#: hockey_django_project/templates/users/create.html:9
+#: hockey_django_project/templates/users/team_create.html:9
+msgid "Create"
+msgstr ""
+
+#: hockey_django_project/templates/users/players_list.html:5
+msgid "Play"
+msgstr ""
+
+#: hockey_django_project/templates/users/players_list.html:7
+msgid "Add team"
+msgstr ""
+
+#: hockey_django_project/templates/users/players_list.html:15
+msgid "Player"
+msgstr ""
+
+#: hockey_django_project/templates/users/players_list.html:36
+msgid "Clear"
+msgstr ""
+
+#: hockey_django_project/templates/users/team_add_user.html:5
+msgid "Add Player in Team"
+msgstr ""
+
+#: hockey_django_project/templates/users/team_add_user.html:9
+msgid "Add"
+msgstr ""
+
+#: hockey_django_project/templates/users/team_create.html:5
+msgid "New team"
+msgstr ""
+
+#: hockey_django_project/templates/users/users_list.html:5
+msgid "Users"
+msgstr ""
+
+#: hockey_django_project/templates/users/users_list.html:11
+msgid "Full name"
+msgstr ""
+
+#: hockey_django_project/templates/users/users_list.html:23
+msgid "Add in team"
+msgstr ""
+
+#: hockey_django_project/users/forms.py:9
+msgid "First name"
+msgstr ""
+
+#: hockey_django_project/users/forms.py:12
+msgid "Last name"
+msgstr ""
+
+#: hockey_django_project/users/models.py:27
+msgid "TeamAddUser"
+msgstr ""
+
+#: hockey_django_project/users/views.py:24
+msgid "Player has been successfully registered"
+msgstr ""
+
+#: hockey_django_project/users/views.py:32
+msgid "Team has been successfully registered"
+msgstr ""
+
+#: hockey_django_project/users/views.py:52
+msgid "Successfully clear"
+msgstr ""

@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <a class="navbar-brand ms-3" href="{% url 'main' %}">{% translate " Main" %}</a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'users_list' %}">{% translate "Players" %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'players_list' %}">{% translate "Team" %}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

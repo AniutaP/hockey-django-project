@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h2 class="my-4">{% translate 'Users' %}</h2>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:10%">ID</th>
+                <th style="width:25%">{% translate 'Full name' %}</th>
+                <th style="width:15%"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if users %}
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>
+                             <a class="btn btn-primary btn-sm" href="{% url 'team_add_user' %}" role="button">{% translate 'Add in team' %}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
