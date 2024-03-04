@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'hockey_django_project',
     'hockey_django_project.users',
+    'hockey_django_project.teams',
 ]
 
 MIDDLEWARE = [

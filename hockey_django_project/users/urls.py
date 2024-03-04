@@ -1,15 +1,17 @@
 from django.urls import path
 from hockey_django_project.users.views import (UsersListView, UserCreateView,
-                                               TeamCreateView, TeamAddUserView,
-                                               TeamAddUserCreateView, TeamAddUserDeleteView
+                                               UserUpdateView, UserDeleteView,
+                                               UserIntoTeamUpdateView, MatchView,
+                                               UserExitTeamView
                                                )
 
 
 urlpatterns = [
     path('', UsersListView.as_view(), name='users_list'),
     path('create/', UserCreateView.as_view(), name='create_user'),
-    path('team/create/', TeamCreateView.as_view(), name='team_create'),
-    path('play/', TeamAddUserView.as_view(), name='players_list'),
-    path('play/create/', TeamAddUserCreateView.as_view(), name='team_add_user'),
-    path('play/clear/', TeamAddUserDeleteView.as_view(), name='team_add_user_clear'),
+    path('<int:pk>/update/', UserUpdateView.as_view(), name='update_user'),
+    path('<int:pk>/delete/', UserDeleteView.as_view(), name='delete_user'),
+    path('<int:pk>/update/add', UserIntoTeamUpdateView.as_view(), name='update_into_team_user'),
+    path('game/', MatchView.as_view(), name='match'),
+    path('<int:pk>/exit/', UserExitTeamView.as_view(), name='exit_team'),
 ]

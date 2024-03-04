@@ -1,7 +1,7 @@
-from hockey_django_project.users.models import User, TeamAddUser, Team
+from hockey_django_project.users.models import User
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
-from hockey_django_project.users.forms import UserForm, TeamForm, TeamAddUserForm
+from hockey_django_project.users.forms import UserForm, UserIntoTeamForm
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render, get_object_or_404, redirect
@@ -16,7 +16,13 @@ class UsersListView(ListView):
     context_object_name = 'users'
 
 
-class UserCreateView(CreateView, SuccessMessageMixin):
+class MatchView(ListView):
+    template_name = 'users/match.html'
+    model = User
+    context_object_name = 'users'
+
+
+class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/create.html'
     model = User
     form_class = UserForm
@@ -24,33 +30,38 @@ class UserCreateView(CreateView, SuccessMessageMixin):
     success_message = _('Player has been successfully registered')
 
 
-class TeamCreateView(CreateView, SuccessMessageMixin):
-    template_name = 'users/team_create.html'
-    model = Team
-    form_class = TeamForm
-    success_url = reverse_lazy('players_list')
-    success_message = _('Team has been successfully registered')
-
-
-class TeamAddUserView(ListView):
-    template_name = 'users/players_list.html'
-    model = TeamAddUser
-    context_object_name = 'teams'
-
-
-class TeamAddUserCreateView(CreateView):
-    template_name = 'users/team_add_user.html'
-    model = TeamAddUser
-    form_class = TeamAddUserForm
+class UserUpdateView(SuccessMessageMixin, UpdateView):
+    template_name = 'users/update.html'
+    model = User
+    form_class = UserForm
     success_url = reverse_lazy('users_list')
+    success_message = _('Player has been successfully update')
 
 
-class TeamAddUserDeleteView(TemplateView):
-    template_name = 'users/clear_teams_from_players.html'
-    model = TeamAddUser
-    success_url = reverse_lazy('players_list')
-    success_message = _('Successfully clear')
+class UserIntoTeamUpdateView(SuccessMessageMixin, UpdateView):
+    template_name = 'users/update.html'
+    model = User
+    form_class = UserIntoTeamForm
+    success_url = reverse_lazy('users_list')
+    success_message = _('Player has been successfully update')
+
+
+class UserDeleteView(SuccessMessageMixin, DeleteView):
+    template_name = 'users/delete.html'
+    model = User
+    success_url = reverse_lazy('users_list')
+    success_message = _('Player has been successfully delete')
+
+
+class UserExitTeamView(SuccessMessageMixin, TemplateView):
+    template_name = 'users/delete.html'
+    model = User
+    success_url = reverse_lazy('match')
+    success_message = _('Player successfully exit')
 
     def post(self, request, *args, **kwargs):
-        TeamAddUser.objects.all().delete()
-        return redirect('players_list')
+        pk = kwargs.get('pk')
+        user = User.objects.get(id=pk)
+        user.team_id = None
+        user.save(force_update=True)
+        return redirect('match')

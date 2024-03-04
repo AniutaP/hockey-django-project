@@ -2,10 +2,10 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 {% block content %}
-    <h1 class="my-4">{% translate 'Add Player in Team' %}</h1>
+    <h2 class="my-4">{% translate 'Update team' %}</h2>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input class="btn btn-primary btn-sm" type="submit" value="{% translate 'Add' %}">
+        <input class="btn btn-primary btn-sm" type="submit" value="{% translate 'Update' %}">
     </form>
 {% endblock %}

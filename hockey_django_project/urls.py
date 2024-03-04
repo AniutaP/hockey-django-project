@@ -22,5 +22,6 @@ from hockey_django_project.views import IndexView
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
     path('users/', include('hockey_django_project.users.urls')),
+    path('teams/', include('hockey_django_project.teams.urls')),
     path('admin/', admin.site.urls),
 ]
