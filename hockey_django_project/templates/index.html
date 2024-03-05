@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    <div class="text-center fs-2 w-75" style="margin: 150px">
-        <p><strong>{% translate 'Welcome to Hockey Team' %}</strong></p>
-        <p><strong>{% translate 'Join to us and take care of your health' %}</strong></p>
+    <div class="w-75 mx-auto text-center fs-3">
+        <img src="static/komandnii-sport-foto1.jpg" class="img-thumbnail">
+        <p></p>
+        <br>
+        <p><strong>{% translate 'Join to our team and take care of your health' %}</strong></p>
     </div>
-    <br>
+
     <div class="text-center">
         <a class="btn btn-warning btn-sm" href="{% url 'users_list' %}" role="button">{% translate 'JOIN' %}</a>
     </div>
