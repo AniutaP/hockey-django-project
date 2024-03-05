@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -94,6 +94,7 @@ WSGI_APPLICATION = 'hockey_django_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 DATABASES = {
     'default': dj_database_url.config(
