@@ -3,6 +3,8 @@
 {% load django_bootstrap5 %}
 {% block content %}
     <h2 class="my-4">{% translate 'Actual Match' %}</h2>
+    <h4>Общее число игроков: {{ count }}</h4>
+    <br>
     <div>
         <a class="btn btn-danger btn-sm" href="{% url 'clear_match' %}" role="button">{% translate 'Clear game match' %}</a>
     </div>

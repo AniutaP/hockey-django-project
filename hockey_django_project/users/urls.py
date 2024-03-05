@@ -2,7 +2,7 @@ from django.urls import path
 from hockey_django_project.users.views import (UsersListView, UserCreateView,
                                                UserUpdateView, UserDeleteView,
                                                UserIntoTeamUpdateView, MatchView,
-                                               UserExitTeamView, UserALLExitTeamView,
+                                               UserExitTeamView, UserAllExitTeamView,
                                                )
 
 
@@ -14,5 +14,5 @@ urlpatterns = [
     path('<int:pk>/update/add', UserIntoTeamUpdateView.as_view(), name='update_into_team_user'),
     path('game/', MatchView.as_view(), name='match'),
     path('<int:pk>/exit/', UserExitTeamView.as_view(), name='exit_team'),
-    path('clear/', UserALLExitTeamView.as_view(), name='clear_match')
+    path('clear/', UserAllExitTeamView.as_view(), name='clear_match')
 ]

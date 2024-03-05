@@ -22,6 +22,12 @@ class MatchView(FilterView):
     filterset_class = UserTeamFilter
     context_object_name = 'users'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        count = User.objects.filter(team_id__isnull=False).count()
+        context['count'] = count
+        return context
+
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/create.html'
@@ -68,7 +74,7 @@ class UserExitTeamView(SuccessMessageMixin, TemplateView):
         return redirect('match')
 
 
-class UserALLExitTeamView(SuccessMessageMixin, TemplateView):
+class UserAllExitTeamView(SuccessMessageMixin, TemplateView):
     template_name = 'users/delete.html'
     model = User
     success_url = reverse_lazy('match')
