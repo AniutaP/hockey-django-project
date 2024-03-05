@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'hockey_django_project',
     'hockey_django_project.users',
     'hockey_django_project.teams',
+    'hockey_django_project.skills',
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,5 @@
 from hockey_django_project.teams.models import Team
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from hockey_django_project.teams.forms import TeamForm
 from django.urls import reverse_lazy
@@ -10,12 +10,6 @@ class TeamsListView(ListView):
     template_name = 'teams/teams_list.html'
     model = Team
     context_object_name = 'teams'
-
-
-class TeamView(DetailView):
-    template_name = 'teams/show_one_team.html'
-    model = Team
-    context_object_name = 'team'
 
 
 class TeamCreateView(SuccessMessageMixin, CreateView):
