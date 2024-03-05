@@ -8,5 +8,8 @@ class User(models.Model):
     team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True)
     skill = models.ForeignKey(Skill, on_delete=models.PROTECT, null=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name

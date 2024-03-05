@@ -23,7 +23,7 @@
                         <td>{{ skill.id }}</a></td>
                         <td>{{ skill.name }}</a></td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{% url 'update_skill' skill.pk %}" role="button">{% translate 'Update' %}</a>
+                            <a class="btn btn-warning btn-sm" href="{% url 'update_skill' skill.pk %}" role="button">{% translate 'Update' %}</a>
                             <a class="btn btn-danger btn-sm" href="{% url 'delete_skill' skill.pk %}" role="button">{% translate 'Delete' %}</a>
                         </td>
                     </tr>

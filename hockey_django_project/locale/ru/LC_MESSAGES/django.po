@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 03:57+0300\n"
+"POT-Creation-Date: 2024-03-05 05:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,17 +20,30 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: hockey_django_project/teams/views.py:26
+#: hockey_django_project/skills/views.py:20
+#, fuzzy
+#| msgid "Player has been successfully registered"
+msgid "Skill has been successfully registered"
+msgstr "Игрок успешно присоединился"
+
+#: hockey_django_project/skills/views.py:28
+#, fuzzy
+#| msgid "Player has been successfully update"
+msgid "Skill has been successfully update"
+msgstr "Игрок успешно изменен"
+
+#: hockey_django_project/skills/views.py:35
+#: hockey_django_project/teams/views.py:35
+msgid "Team has been successfully delete"
+msgstr "Команда успешно удалена"
+
+#: hockey_django_project/teams/views.py:20
 msgid "Team has been successfully registered"
 msgstr "Команда успешно добавлена"
 
-#: hockey_django_project/teams/views.py:34
+#: hockey_django_project/teams/views.py:28
 msgid "Team has been successfully update"
 msgstr "Команда успешно изменена"
-
-#: hockey_django_project/teams/views.py:41
-msgid "Team has been successfully delete"
-msgstr "Команда успешно удалена"
 
 #: hockey_django_project/templates/base.html:13
 msgid "Hockey"
@@ -66,52 +79,81 @@ msgstr "Игроки"
 msgid "Teams"
 msgstr "Команды"
 
-#: hockey_django_project/templates/teams/create.html:5
-msgid "New team"
-msgstr "Новая команда"
+#: hockey_django_project/templates/skills/create.html:5
+msgid "New skill"
+msgstr "Новая игровая позиция"
 
+#: hockey_django_project/templates/skills/create.html:9
 #: hockey_django_project/templates/teams/create.html:9
 #: hockey_django_project/templates/users/create.html:9
 msgid "Create"
 msgstr "Добавить"
 
+#: hockey_django_project/templates/skills/delete.html:5
+#: hockey_django_project/templates/skills/skills_list.html:27
 #: hockey_django_project/templates/teams/delete.html:5
 #: hockey_django_project/templates/teams/teams_list.html:25
 #: hockey_django_project/templates/users/delete.html:5
-#: hockey_django_project/templates/users/users_list.html:35
+#: hockey_django_project/templates/users/users_list.html:43
 msgid "Delete"
 msgstr "Удалить"
 
+#: hockey_django_project/templates/skills/delete.html:8
 #: hockey_django_project/templates/teams/delete.html:8
 #: hockey_django_project/templates/users/delete.html:8
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
+#: hockey_django_project/templates/skills/delete.html:9
 #: hockey_django_project/templates/teams/delete.html:9
 #: hockey_django_project/templates/users/delete.html:9
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: hockey_django_project/templates/teams/teams_list.html:7
-msgid "Create team"
-msgstr "Добавить команду"
+#: hockey_django_project/templates/skills/skills_list.html:5
+msgid "Skills"
+msgstr "Игровые позиции"
 
+#: hockey_django_project/templates/skills/skills_list.html:7
+msgid "Create skill"
+msgstr "Добавить"
+
+#: hockey_django_project/templates/skills/skills_list.html:14
 #: hockey_django_project/templates/teams/teams_list.html:13
 msgid "Name"
 msgstr "Название"
 
+#: hockey_django_project/templates/skills/skills_list.html:15
 #: hockey_django_project/templates/teams/teams_list.html:14
-#: hockey_django_project/templates/users/match.html:14
-#: hockey_django_project/templates/users/users_list.html:16
+#: hockey_django_project/templates/users/match.html:24
+#: hockey_django_project/templates/users/users_list.html:24
 msgid "Сhanges"
 msgstr "Изменения"
 
+#: hockey_django_project/templates/skills/skills_list.html:26
+#: hockey_django_project/templates/skills/update.html:9
 #: hockey_django_project/templates/teams/teams_list.html:24
 #: hockey_django_project/templates/teams/update.html:9
 #: hockey_django_project/templates/users/update.html:9
-#: hockey_django_project/templates/users/users_list.html:34
+#: hockey_django_project/templates/users/users_list.html:42
 msgid "Update"
 msgstr "Обновить"
+
+#: hockey_django_project/templates/skills/update.html:5
+msgid "Update skill"
+msgstr "Обновить игровую позицию"
+
+#: hockey_django_project/templates/teams/create.html:5
+msgid "New team"
+msgstr "Новая команда"
+
+#: hockey_django_project/templates/teams/teams_list.html:7
+msgid "Create team"
+msgstr "Добавить команду"
+
+#: hockey_django_project/templates/teams/teams_list.html:36
+msgid "Create/Change/Delete SKILLS"
+msgstr "Создать/Изменить/Удалить ИГРОВУЮ ПОЗИЦИЮ"
 
 #: hockey_django_project/templates/teams/update.html:5
 msgid "Update team"
@@ -125,20 +167,30 @@ msgstr "Новый игрок"
 msgid "Actual Match"
 msgstr "Предстоящий матч"
 
-#: hockey_django_project/templates/users/match.html:11
+#: hockey_django_project/templates/users/match.html:7
+msgid "Clear game match"
+msgstr "Очистить матч"
+
+#: hockey_django_project/templates/users/match.html:14
+#: hockey_django_project/templates/users/users_list.html:14
+msgid "Show"
+msgstr "Показать"
+
+#: hockey_django_project/templates/users/match.html:21
+#: hockey_django_project/users/filters.py:25
 msgid "Team"
 msgstr "Команда"
 
-#: hockey_django_project/templates/users/match.html:12
+#: hockey_django_project/templates/users/match.html:22
 msgid "Full Name"
 msgstr "Фамилия Имя Отчество"
 
-#: hockey_django_project/templates/users/match.html:13
-#: hockey_django_project/templates/users/users_list.html:14
+#: hockey_django_project/templates/users/match.html:23
+#: hockey_django_project/templates/users/users_list.html:22
 msgid "Playing Positions"
 msgstr "Игровая позиция"
 
-#: hockey_django_project/templates/users/match.html:27
+#: hockey_django_project/templates/users/match.html:37
 msgid "Exit match"
 msgstr "Покинуть матч"
 
@@ -150,39 +202,47 @@ msgstr "Обновить игрока"
 msgid "Create player"
 msgstr "Добавить игрока"
 
-#: hockey_django_project/templates/users/users_list.html:13
+#: hockey_django_project/templates/users/users_list.html:21
 #: hockey_django_project/users/forms.py:9
 msgid "Full name"
 msgstr "Фамилия Имя Отчество"
 
-#: hockey_django_project/templates/users/users_list.html:15
+#: hockey_django_project/templates/users/users_list.html:23
 msgid "Status"
 msgstr "Статус"
 
-#: hockey_django_project/templates/users/users_list.html:27
-msgid "in game"
-msgstr "в матче"
+#: hockey_django_project/templates/users/users_list.html:35
+msgid "playing in game"
+msgstr "участвует в матче"
 
-#: hockey_django_project/templates/users/users_list.html:30
+#: hockey_django_project/templates/users/users_list.html:38
 msgid "add in game"
 msgstr "добавить в матч"
 
-#: hockey_django_project/users/views.py:27
+#: hockey_django_project/users/filters.py:12
+msgid "Skill"
+msgstr "Игровая позиция"
+
+#: hockey_django_project/users/views.py:31
 msgid "Player has been successfully registered"
 msgstr "Игрок успешно присоединился"
 
-#: hockey_django_project/users/views.py:35
-#: hockey_django_project/users/views.py:43
+#: hockey_django_project/users/views.py:39
+#: hockey_django_project/users/views.py:47
 msgid "Player has been successfully update"
 msgstr "Игрок успешно изменен"
 
-#: hockey_django_project/users/views.py:50
+#: hockey_django_project/users/views.py:54
 msgid "Player has been successfully delete"
 msgstr "Игрок успешно удален"
 
-#: hockey_django_project/users/views.py:57
+#: hockey_django_project/users/views.py:61
+#: hockey_django_project/users/views.py:75
 msgid "Player successfully exit"
 msgstr "Игрок успешно вышел"
+
+#~ msgid "in game"
+#~ msgstr "в матче"
 
 #~ msgid "First name"
 #~ msgstr "Фамилия Имя Отчество"
