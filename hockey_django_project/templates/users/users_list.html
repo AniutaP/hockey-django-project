@@ -10,10 +10,10 @@
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
-                <th style="width:25%">ID</th>
-                <th style="width:25%">{% translate 'Name' %}</th>
-                <th style="width:25%">Status</th>
-                <th style="width:25%">Сhanges</th>
+                <th style="width:40%">{% translate 'Full name' %}</th>
+                <th style="width:30%">{% translate 'Playing Positions' %}</th>
+                <th style="width:15%">{% translate 'Status' %}</th>
+                <th style="width:15%">{% translate 'Сhanges' %}</th>
             </tr>
         </thead>
 
@@ -21,10 +21,10 @@
             {% if users %}
                 {% for user in users %}
                     <tr>
-                        <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
+                        <td>{{ user.skill }}</td>
                         {% if user.team_id is not NULL %}
-                        <td>in game</td>
+                        <td>{% translate 'in game' %}</td>
                         {% else %}
                         <td>
                             <a class="btn btn-primary btn-sm" href="{% url 'update_into_team_user' user.pk %}" role="button">{% translate 'add in game' %}</a>

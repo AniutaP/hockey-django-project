@@ -10,9 +10,8 @@
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
-                <th style="width:25%">ID</th>
-                <th style="width:25%">{% translate 'Name' %}</th>
-                <th style="width:25%">Сhanges</th>
+                <th style="width:85%">{% translate 'Name' %}</th>
+                <th style="width:15%">{% translate 'Сhanges' %}</th>
             </tr>
         </thead>
 
@@ -20,7 +19,6 @@
             {% if teams %}
                 {% for team in teams %}
                     <tr>
-                        <td>{{ team.id }}</td>
                         <td>{{ team.name }}</a></td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="{% url 'update_team' team.pk %}" role="button">{% translate 'Update' %}</a>

@@ -2,15 +2,16 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 {% block content %}
-    <h2 class="my-4">{% translate 'Players' %}</h2>
+    <h2 class="my-4">{% translate 'Actual Match' %}</h2>
+    <br>
     <br>
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
-                <th style="width:25%">ID</th>
-                <th style="width:25%">{% translate 'Name' %}</th>
-                <th style="width:25%">Status</th>
-                <th style="width:25%">Сhanges</th>
+                <th style="width:40%">{% translate 'Team' %}</th>
+                <th style="width:30%">{% translate 'Full Name' %}</th>
+                <th style="width:15%">{% translate 'Playing Positions' %}</th>
+                <th style="width:15%">{% translate 'Сhanges' %}</th>
             </tr>
         </thead>
 
@@ -19,9 +20,9 @@
                 {% for user in users %}
                     {% if user.team_id is not NULL %}
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
                         <td>{{ user.team.name }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.skill }}</td>
                         <td>
                             <a class="btn btn-danger btn-sm" href="{% url 'exit_team' user.pk %}" role="button">{% translate 'Exit match' %}</a>
                         </td>

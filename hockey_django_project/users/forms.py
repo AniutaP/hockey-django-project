@@ -6,11 +6,11 @@ from .models import User, Skill
 class UserForm(forms.ModelForm):
 
     name = forms.CharField(
-        max_length=150, required=True, label=_("First name"))
+        max_length=150, required=True, label=_("Full name"))
 
     class Meta:
         model = User
-        fields = ('name', 'team')
+        fields = ('name', 'team', 'skill')
 
 
 class UserIntoTeamForm(forms.ModelForm):

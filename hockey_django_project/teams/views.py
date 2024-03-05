@@ -4,10 +4,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from hockey_django_project.teams.forms import TeamForm
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib import messages
 
 
 class TeamsListView(ListView):

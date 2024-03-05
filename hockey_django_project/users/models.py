@@ -1,7 +1,5 @@
 from django.db import models
 from hockey_django_project.teams.models import Team
-from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractUser
 
 
 class User(models.Model):

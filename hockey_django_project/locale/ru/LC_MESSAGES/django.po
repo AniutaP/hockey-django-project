@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-03 01:43+0300\n"
+"POT-Creation-Date: 2024-03-05 03:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,115 +19,170 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: hockey_django_project/teams/views.py:26
+msgid "Team has been successfully registered"
+msgstr "Команда успешно добавлена"
+
+#: hockey_django_project/teams/views.py:34
+msgid "Team has been successfully update"
+msgstr "Команда успешно изменена"
+
+#: hockey_django_project/teams/views.py:41
+msgid "Team has been successfully delete"
+msgstr "Команда успешно удалена"
+
 #: hockey_django_project/templates/base.html:13
-msgid "Football"
-msgstr ""
+msgid "Hockey"
+msgstr "Хоккей"
 
 #: hockey_django_project/templates/index.html:5
-msgid "Welcome to Football Team"
-msgstr ""
+msgid "Welcome to Hockey Team"
+msgstr "Добро пожаловать в Хоккейную Команду"
 
 #: hockey_django_project/templates/index.html:6
 msgid "Join to us and take care of your health"
-msgstr ""
+msgstr "Присоединяйтесь к нам, позаботьтесь о своем здоровье"
 
-#: hockey_django_project/templates/index.html:9
-msgid "Create player"
-msgstr ""
+#: hockey_django_project/templates/index.html:10
+msgid "JOIN"
+msgstr "ПРИСОЕДИНИТЬСЯ"
 
 #: hockey_django_project/templates/navbar.html:4
 msgid " Main"
-msgstr ""
+msgstr "Главная"
 
 #: hockey_django_project/templates/navbar.html:13
-msgid "Players"
-msgstr ""
+msgid "Match"
+msgstr "Матч"
 
 #: hockey_django_project/templates/navbar.html:16
-msgid "Team"
-msgstr ""
+#: hockey_django_project/templates/users/users_list.html:5
+msgid "Players"
+msgstr "Игроки"
 
-#: hockey_django_project/templates/users/clear_teams_from_players.html:5
-msgid "Clear teams"
-msgstr ""
+#: hockey_django_project/templates/navbar.html:19
+#: hockey_django_project/templates/teams/teams_list.html:5
+msgid "Teams"
+msgstr "Команды"
 
-#: hockey_django_project/templates/users/clear_teams_from_players.html:8
-msgid "Are you sure you want to clear"
-msgstr ""
+#: hockey_django_project/templates/teams/create.html:5
+msgid "New team"
+msgstr "Новая команда"
 
-#: hockey_django_project/templates/users/clear_teams_from_players.html:9
-msgid "Yes, clear"
-msgstr ""
+#: hockey_django_project/templates/teams/create.html:9
+#: hockey_django_project/templates/users/create.html:9
+msgid "Create"
+msgstr "Добавить"
+
+#: hockey_django_project/templates/teams/delete.html:5
+#: hockey_django_project/templates/teams/teams_list.html:25
+#: hockey_django_project/templates/users/delete.html:5
+#: hockey_django_project/templates/users/users_list.html:35
+msgid "Delete"
+msgstr "Удалить"
+
+#: hockey_django_project/templates/teams/delete.html:8
+#: hockey_django_project/templates/users/delete.html:8
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: hockey_django_project/templates/teams/delete.html:9
+#: hockey_django_project/templates/users/delete.html:9
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: hockey_django_project/templates/teams/teams_list.html:7
+msgid "Create team"
+msgstr "Добавить команду"
+
+#: hockey_django_project/templates/teams/teams_list.html:13
+msgid "Name"
+msgstr "Название"
+
+#: hockey_django_project/templates/teams/teams_list.html:14
+#: hockey_django_project/templates/users/match.html:14
+#: hockey_django_project/templates/users/users_list.html:16
+msgid "Сhanges"
+msgstr "Изменения"
+
+#: hockey_django_project/templates/teams/teams_list.html:24
+#: hockey_django_project/templates/teams/update.html:9
+#: hockey_django_project/templates/users/update.html:9
+#: hockey_django_project/templates/users/users_list.html:34
+msgid "Update"
+msgstr "Обновить"
+
+#: hockey_django_project/templates/teams/update.html:5
+msgid "Update team"
+msgstr "Обновить команду"
 
 #: hockey_django_project/templates/users/create.html:5
 msgid "New player"
-msgstr ""
+msgstr "Новый игрок"
 
-#: hockey_django_project/templates/users/create.html:9
-#: hockey_django_project/templates/users/team_create.html:9
-msgid "Create"
-msgstr ""
+#: hockey_django_project/templates/users/match.html:5
+msgid "Actual Match"
+msgstr "Предстоящий матч"
 
-#: hockey_django_project/templates/users/players_list.html:5
-msgid "Play"
-msgstr ""
+#: hockey_django_project/templates/users/match.html:11
+msgid "Team"
+msgstr "Команда"
 
-#: hockey_django_project/templates/users/players_list.html:7
-msgid "Add team"
-msgstr ""
+#: hockey_django_project/templates/users/match.html:12
+msgid "Full Name"
+msgstr "Фамилия Имя Отчество"
 
-#: hockey_django_project/templates/users/players_list.html:15
-msgid "Player"
-msgstr ""
+#: hockey_django_project/templates/users/match.html:13
+#: hockey_django_project/templates/users/users_list.html:14
+msgid "Playing Positions"
+msgstr "Игровая позиция"
 
-#: hockey_django_project/templates/users/players_list.html:36
-msgid "Clear"
-msgstr ""
+#: hockey_django_project/templates/users/match.html:27
+msgid "Exit match"
+msgstr "Покинуть матч"
 
-#: hockey_django_project/templates/users/team_add_user.html:5
-msgid "Add Player in Team"
-msgstr ""
+#: hockey_django_project/templates/users/update.html:5
+msgid "Update user"
+msgstr "Обновить игрока"
 
-#: hockey_django_project/templates/users/team_add_user.html:9
-msgid "Add"
-msgstr ""
+#: hockey_django_project/templates/users/users_list.html:7
+msgid "Create player"
+msgstr "Добавить игрока"
 
-#: hockey_django_project/templates/users/team_create.html:5
-msgid "New team"
-msgstr ""
-
-#: hockey_django_project/templates/users/users_list.html:5
-msgid "Users"
-msgstr ""
-
-#: hockey_django_project/templates/users/users_list.html:11
-msgid "Full name"
-msgstr ""
-
-#: hockey_django_project/templates/users/users_list.html:23
-msgid "Add in team"
-msgstr ""
-
+#: hockey_django_project/templates/users/users_list.html:13
 #: hockey_django_project/users/forms.py:9
-msgid "First name"
-msgstr ""
+msgid "Full name"
+msgstr "Фамилия Имя Отчество"
 
-#: hockey_django_project/users/forms.py:12
-msgid "Last name"
-msgstr ""
+#: hockey_django_project/templates/users/users_list.html:15
+msgid "Status"
+msgstr "Статус"
 
-#: hockey_django_project/users/models.py:27
-msgid "TeamAddUser"
-msgstr ""
+#: hockey_django_project/templates/users/users_list.html:27
+msgid "in game"
+msgstr "в матче"
 
-#: hockey_django_project/users/views.py:24
+#: hockey_django_project/templates/users/users_list.html:30
+msgid "add in game"
+msgstr "добавить в матч"
+
+#: hockey_django_project/users/views.py:27
 msgid "Player has been successfully registered"
-msgstr ""
+msgstr "Игрок успешно присоединился"
 
-#: hockey_django_project/users/views.py:32
-msgid "Team has been successfully registered"
-msgstr ""
+#: hockey_django_project/users/views.py:35
+#: hockey_django_project/users/views.py:43
+msgid "Player has been successfully update"
+msgstr "Игрок успешно изменен"
 
-#: hockey_django_project/users/views.py:52
-msgid "Successfully clear"
-msgstr ""
+#: hockey_django_project/users/views.py:50
+msgid "Player has been successfully delete"
+msgstr "Игрок успешно удален"
+
+#: hockey_django_project/users/views.py:57
+msgid "Player successfully exit"
+msgstr "Игрок успешно вышел"
+
+#~ msgid "First name"
+#~ msgstr "Фамилия Имя Отчество"
