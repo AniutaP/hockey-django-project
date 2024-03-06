@@ -16,7 +16,7 @@ class SkillCreateView(SuccessMessageMixin, CreateView):
     template_name = 'skills/create.html'
     model = Skill
     form_class = SkillForm
-    success_url = reverse_lazy('main')
+    success_url = reverse_lazy('skills_list')
     success_message = _('Skill has been successfully registered')
 
 
@@ -24,12 +24,12 @@ class SkillUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'skills/update.html'
     model = Skill
     form_class = SkillForm
-    success_url = reverse_lazy('main')
+    success_url = reverse_lazy('skills_list')
     success_message = _('Skill has been successfully update')
 
 
 class SkillDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'teams/delete.html'
     model = Skill
-    success_url = reverse_lazy('main')
+    success_url = reverse_lazy('skills_list')
     success_message = _('Team has been successfully delete')

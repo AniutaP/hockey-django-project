@@ -6,14 +6,14 @@
     <h4>Общее число игроков: {{ count }}</h4>
     <br>
     <div>
-        <a class="btn btn-danger btn-sm" href="{% url 'clear_match' %}" role="button">{% translate 'Clear game match' %}</a>
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'clear_match' %}" role="button">{% translate 'Clear game match' %}</a>
     </div>
     <br>
     <div class="card mb-3">
             <div class="card-body bg-light">
                 <form class="form-inline center" method="get">
                   {% bootstrap_form filter.form field_class="ml-2 mr-3" %}
-                    <button class="btn btn-warning btn-sm" type="submit">{% translate 'Show' %}</button>
+                    <button class="btn btn-outline-warning btn-sm" type="submit">{% translate 'Show' %}</button>
                 </form>
             </div>
     </div>
@@ -36,7 +36,7 @@
                         <td>{{ user.name }}</td>
                         <td>{{ user.skill }}</td>
                         <td>
-                            <a class="btn btn-danger btn-sm" href="{% url 'exit_team' user.pk %}" role="button">{% translate 'Exit match' %}</a>
+                            <a class="btn btn-outline-danger btn-sm" href="{% url 'exit_team' user.pk %}" role="button">{% translate 'Exit match' %}</a>
                         </td>
                     </tr>
                     {% endif %}
