@@ -10,7 +10,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('name', 'team', 'skill')
+        fields = ('name', 'skill')
 
 
 class UserIntoTeamForm(forms.ModelForm):
