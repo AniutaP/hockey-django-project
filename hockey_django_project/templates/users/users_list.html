@@ -3,15 +3,12 @@
 {% load django_bootstrap5 %}
 {% block content %}
     <h2 class="my-4">{% translate 'Players' %}</h2>
-    <div>
-        <a class="btn btn-outline-warning btn-sm" href="{% url 'create_user' %}" role="button">{% translate 'Create player' %}</a>
-    </div>
     <br>
     <div class="card mb-3">
             <div class="card-body bg-light">
                 <form class="form-inline center" method="get">
                   {% bootstrap_form filter.form field_class="ml-2 mr-3" %}
-                    <button class="btn btn-outline-warning btn-sm" type="submit">{% translate 'Show' %}</button>
+                    <button class="btn btn-outline-secondary btn-sm" type="submit">{% translate 'Show' %}</button>
                 </form>
             </div>
     </div>
@@ -29,17 +26,17 @@
             {% if users %}
                 {% for user in users %}
                     <tr>
-                        <td>{{ user.name }}</td>
+                        <td>{{ user.last_name }} {{ user.first_name }}</td>
                         <td>{{ user.skill }}</td>
                         {% if user.team_id is not NULL %}
                         <td>{% translate 'playing in game' %}</td>
                         {% else %}
                         <td>
-                            <a class="btn btn-outline-warning btn-sm" href="{% url 'update_into_team_user' user.pk %}" role="button">{% translate 'add in game' %}</a>
+                            <a class="btn btn-outline-secondary btn-sm" href="{% url 'update_into_team_user' user.pk %}" role="button">{% translate 'add in game' %}</a>
                         </td>
                         {% endif %}
                         <td>
-                            <a class="btn btn-outline-warning btn-sm" href="{% url 'update_user' user.pk %}" role="button">{% translate 'Update' %}</a>
+                            <a class="btn btn-outline-secondary btn-sm" href="{% url 'update_user' user.pk %}" role="button">{% translate 'Update' %}</a>
                             <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_user' user.pk %}" role="button">{% translate 'Delete' %}</a>
                         </td>
                     </tr>

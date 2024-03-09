@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hockey_django_project.views import IndexView
+from hockey_django_project.views import IndexView, UserLoginView, logout_view
 
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', logout_view, name='logout'),
     path('users/', include('hockey_django_project.users.urls')),
     path('teams/', include('hockey_django_project.teams.urls')),
     path('skills/', include('hockey_django_project.skills.urls')),

@@ -1,16 +1,23 @@
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.utils.translation import gettext as _
-from .models import User, Skill
+from .models import User
 
 
-class UserForm(forms.ModelForm):
+class UserForm(UserCreationForm):
 
-    name = forms.CharField(
-        max_length=150, required=True, label=_("Full name"))
+    first_name = forms.CharField(
+        max_length=150, required=True, label=_("First name")
+    )
+    last_name = forms.CharField(
+        max_length=150, required=True, label=_("Last name")
+    )
 
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('name', 'skill')
+        fields = ('first_name', 'last_name', 'username',
+                  'password1', 'password2', 'skill'
+                  )
 
 
 class UserIntoTeamForm(forms.ModelForm):
@@ -22,11 +29,5 @@ class UserIntoTeamForm(forms.ModelForm):
 
 class UpdateUserForm(UserForm):
     def clean_username(self):
-        name = self.cleaned_data.get('name')
-        return name
-
-
-class SkillForm(forms.ModelForm):
-    class Meta:
-        model = Skill
-        fields = ('name', )
+        username = self.cleaned_data.get('username')
+        return username
