@@ -22,5 +22,5 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
 def logout_view(request):
     logout(request)
-    messages.success(request, 'You are logged out')
+    messages.success(request, gettext_lazy('You are logged out'))
     return redirect('main')
