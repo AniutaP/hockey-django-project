@@ -25,6 +25,7 @@
         <tbody>
             {% if users %}
                 {% for user in users %}
+                    {% if user.is_staff is not True %}
                     <tr>
                         <td>{{ user.last_name }} {{ user.first_name }}</td>
                         <td>{{ user.skill }}</td>
@@ -40,6 +41,7 @@
                             <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_user' user.pk %}" role="button">{% translate 'Delete' %}</a>
                         </td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </tbody>

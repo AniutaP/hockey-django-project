@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 from django_filters.views import FilterView
 from hockey_django_project.users.filters import UserSkillFilter, UserTeamFilter
 from hockey_django_project.mixins import (AuthenticateMixin, PermissionMixin,
-                                          DeleteProtectionMixin)
+                                          DeleteProtectionMixin, AuthorizationMixin)
 
 
 class UsersListView(AuthenticateMixin, FilterView):
@@ -35,7 +35,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/create.html'
     model = get_user_model()
     form_class = UserForm
-    success_url = reverse_lazy('users_list')
+    success_url = reverse_lazy('login')
     success_message = _('Player has been successfully registered')
 
 
@@ -45,16 +45,8 @@ class UserUpdateView(AuthenticateMixin, PermissionMixin, SuccessMessageMixin, Up
     form_class = UpdateUserForm
     success_url = reverse_lazy('users_list')
     success_message = _('Player has been successfully update')
-    permission_message = _('You have no rights to change another user.')
+    permission_message = _('You have no rights to change another user')
     permission_url = reverse_lazy('users_list')
-
-
-class UserIntoTeamUpdateView(AuthenticateMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'users/update.html'
-    model = get_user_model()
-    form_class = UserIntoTeamForm
-    success_url = reverse_lazy('users_list')
-    success_message = _('Player has been successfully update')
 
 
 class UserDeleteView(AuthenticateMixin,
@@ -66,7 +58,7 @@ class UserDeleteView(AuthenticateMixin,
     model = get_user_model()
     success_url = reverse_lazy('users_list')
     success_message = _('Player has been successfully delete')
-    permission_message = _('You have no rights to change another user.')
+    permission_message = _('You have no rights to change another user')
     permission_url = 'users_list'
     rejection_message = _('Unable to delete user because it is in use')
     rejection_next_url = reverse_lazy('users_list')
@@ -75,11 +67,25 @@ class UserDeleteView(AuthenticateMixin,
         return super().post(request, *args, **kwargs)
 
 
-class UserExitTeamView(AuthenticateMixin, SuccessMessageMixin, TemplateView):
+class UserIntoTeamUpdateView(AuthenticateMixin, AuthorizationMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'users/update.html'
+    model = get_user_model()
+    form_class = UserIntoTeamForm
+    success_url = reverse_lazy('users_list')
+    success_message = _('Player has been successfully update')
+    permission_required = 'users.change_users'
+    permission_denied_message = _('You have no rights to add in match user')
+    login_url = reverse_lazy('users_list')
+
+
+class UserExitTeamView(AuthenticateMixin, AuthorizationMixin, SuccessMessageMixin, TemplateView):
     template_name = 'users/delete.html'
     model = get_user_model()
     success_url = reverse_lazy('match')
     success_message = _('Player successfully exit')
+    permission_required = 'users.change_users'
+    permission_denied_message = _('You have no rights to delete user from match')
+    login_url = reverse_lazy('match')
 
     def post(self, request, *args, **kwargs):
         pk = kwargs.get('pk')
@@ -89,11 +95,14 @@ class UserExitTeamView(AuthenticateMixin, SuccessMessageMixin, TemplateView):
         return redirect('match')
 
 
-class UserAllExitTeamView(AuthenticateMixin, SuccessMessageMixin, TemplateView):
+class UserAllExitTeamView(AuthenticateMixin, AuthorizationMixin, SuccessMessageMixin, TemplateView):
     template_name = 'users/delete.html'
     model = get_user_model()
     success_url = reverse_lazy('match')
     success_message = _('Player successfully exit')
+    permission_required = 'users.change_users'
+    permission_denied_message = _('You have no rights clear match')
+    login_url = reverse_lazy('match')
 
     def post(self, request, *args, **kwargs):
         users = get_user_model().objects.all()

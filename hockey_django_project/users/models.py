@@ -7,8 +7,8 @@ from hockey_django_project.skills.models import Skill
 class User(AbstractUser):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True)
-    skill = models.ForeignKey(Skill, on_delete=models.PROTECT, null=True)
+    team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, blank=True)
+    skill = models.ForeignKey(Skill, on_delete=models.PROTECT, null=True, blank=True)
 
     class Meta:
         ordering = ['last_name']

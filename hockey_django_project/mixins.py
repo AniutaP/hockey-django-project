@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.utils.translation import gettext
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -20,7 +20,7 @@ class PermissionMixin(UserPassesTestMixin):
     permission_url = ''
 
     def test_func(self):
-        return self.get_object() == self.request.user
+        return self.request.user.is_superuser or self.get_object() == self.request.user
 
     def handle_no_permission(self):
         messages.error(self.request, self.permission_message)
@@ -37,3 +37,12 @@ class DeleteProtectionMixin:
         except ProtectedError:
             messages.error(request, self.rejection_message)
             return redirect(self.rejection_url)
+
+
+class AuthorizationMixin(PermissionRequiredMixin):
+    permission_denied_message = ''
+    login_url = ''
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.permission_denied_message)
+        return redirect(self.login_url)

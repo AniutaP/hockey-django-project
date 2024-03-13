@@ -3,7 +3,7 @@
 {% load django_bootstrap5 %}
 {% block content %}
     <h2 class="my-4">{% translate 'Actual Match' %}</h2>
-    <h4>Общее число игроков: {{ count }}</h4>
+    <h4>{% translate 'Total number of players participating in the match' %}: {{ count }}</h4>
     <br>
     <div>
         <a class="btn btn-outline-danger btn-sm" href="{% url 'clear_match' %}" role="button">{% translate 'Clear game match' %}</a>
@@ -32,7 +32,7 @@
                 {% for user in users %}
                     {% if user.team_id is not NULL %}
                     <tr>
-                        <td>{{ user.team.name }}</td>
+                        <td>{{ user.last_name }} {{ user.first_name }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.skill }}</td>
                         <td>
