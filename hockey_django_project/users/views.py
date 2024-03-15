@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 from hockey_django_project.users.forms import UserForm, UserIntoTeamForm, UpdateUserForm
 from django.urls import reverse_lazy
@@ -16,6 +16,12 @@ class UsersListView(AuthenticateMixin, FilterView):
     model = get_user_model()
     filterset_class = UserSkillFilter
     context_object_name = 'users'
+
+
+class UserView(AuthenticateMixin, DetailView):
+    template_name = 'users/show_one_user.html'
+    model = get_user_model()
+    context_object_name = 'user'
 
 
 class MatchView(FilterView):

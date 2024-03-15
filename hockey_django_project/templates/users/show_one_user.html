@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block content %}
+    {% if user.is_superuser %}
+    <h2 class="my-4">{% translate 'Player (admin)' %}</h2>
+    {% else %}
+    <h2 class="my-4">{% translate 'Player' %}</h2>
+    {% endif %}
+    <br>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <b>{{ user.last_name }} {{ user.first_name }}</b>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>{% translate 'Skill' %}:</b></li>
+          <li class="list-group-item">{{ user.skill }}</li>
+          <li class="list-group-item"><b>{% translate 'Contact information' %}:</b></li>
+        </ul>
+        <div class="card-body">
+            <p class="card-text">{{ user.сontact_information }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+              <a class="btn btn-outline-secondary btn-sm" href="{% url 'update_user' user.pk %}" role="button">{% translate 'Update' %}</a>
+              <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_user' user.pk %}" role="button">{% translate 'Delete' %}</a>
+          </li>
+        </ul>
+    </div>
+{% endblock %}

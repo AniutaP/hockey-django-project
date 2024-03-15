@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 01:07+0300\n"
+"POT-Creation-Date: 2024-03-15 23:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,7 +137,7 @@ msgstr "Добавить"
 #: hockey_django_project/templates/teams/delete.html:5
 #: hockey_django_project/templates/teams/teams_list.html:25
 #: hockey_django_project/templates/users/delete.html:5
-#: hockey_django_project/templates/users/users_list.html:41
+#: hockey_django_project/templates/users/show_one_user.html:26
 msgid "Delete"
 msgstr "Удалить"
 
@@ -164,7 +164,6 @@ msgstr "Добавить"
 #: hockey_django_project/templates/skills/skills_list.html:15
 #: hockey_django_project/templates/teams/teams_list.html:14
 #: hockey_django_project/templates/users/match.html:26
-#: hockey_django_project/templates/users/users_list.html:21
 msgid "Сhanges"
 msgstr "Изменения"
 
@@ -172,8 +171,8 @@ msgstr "Изменения"
 #: hockey_django_project/templates/skills/update.html:9
 #: hockey_django_project/templates/teams/teams_list.html:24
 #: hockey_django_project/templates/teams/update.html:9
+#: hockey_django_project/templates/users/show_one_user.html:25
 #: hockey_django_project/templates/users/update.html:9
-#: hockey_django_project/templates/users/users_list.html:40
 msgid "Update"
 msgstr "Обновить"
 
@@ -220,6 +219,7 @@ msgstr "Показать"
 
 #: hockey_django_project/templates/users/match.html:23
 #: hockey_django_project/users/filters.py:25
+#: hockey_django_project/users/models.py:12
 msgid "Team"
 msgstr "Команда"
 
@@ -236,6 +236,25 @@ msgstr "Игровая позиция"
 msgid "Exit match"
 msgstr "Покинуть матч"
 
+#: hockey_django_project/templates/users/show_one_user.html:6
+msgid "Player (admin)"
+msgstr "Игрок (админ)"
+
+#: hockey_django_project/templates/users/show_one_user.html:8
+msgid "Player"
+msgstr "Игрок"
+
+#: hockey_django_project/templates/users/show_one_user.html:16
+#: hockey_django_project/users/filters.py:12
+#: hockey_django_project/users/models.py:13
+msgid "Skill"
+msgstr "Игровая позиция"
+
+#: hockey_django_project/templates/users/show_one_user.html:18
+#: hockey_django_project/users/models.py:11
+msgid "Contact information"
+msgstr "Контактная информация"
+
 #: hockey_django_project/templates/users/update.html:5
 msgid "Update user"
 msgstr "Обновить игрока"
@@ -248,62 +267,58 @@ msgstr "Фамилия Имя Отчество"
 msgid "Status"
 msgstr "Статус"
 
-#: hockey_django_project/templates/users/users_list.html:33
+#: hockey_django_project/templates/users/users_list.html:32
 msgid "playing in game"
 msgstr "участвует в матче"
 
-#: hockey_django_project/templates/users/users_list.html:36
+#: hockey_django_project/templates/users/users_list.html:35
 msgid "add in game"
 msgstr "добавить в матч"
 
-#: hockey_django_project/users/filters.py:12
-msgid "Skill"
-msgstr "Игровая позиция"
-
 #: hockey_django_project/users/forms.py:10
 msgid "First name"
-msgstr "Фамилия Имя Отчество"
+msgstr "Имя"
 
 #: hockey_django_project/users/forms.py:13
 msgid "Last name"
 msgstr "Фамилия"
 
-#: hockey_django_project/users/views.py:39
+#: hockey_django_project/users/views.py:45
 msgid "Player has been successfully registered"
 msgstr "Игрок успешно присоединился"
 
-#: hockey_django_project/users/views.py:47
-#: hockey_django_project/users/views.py:75
+#: hockey_django_project/users/views.py:53
+#: hockey_django_project/users/views.py:81
 msgid "Player has been successfully update"
 msgstr "Игрок успешно изменен"
 
-#: hockey_django_project/users/views.py:48
-#: hockey_django_project/users/views.py:61
+#: hockey_django_project/users/views.py:54
+#: hockey_django_project/users/views.py:67
 msgid "You have no rights to change another user"
 msgstr "У вас нет прав изменять другого игрока"
 
-#: hockey_django_project/users/views.py:60
+#: hockey_django_project/users/views.py:66
 msgid "Player has been successfully delete"
 msgstr "Игрок успешно удален"
 
-#: hockey_django_project/users/views.py:63
+#: hockey_django_project/users/views.py:69
 msgid "Unable to delete user because it is in use"
 msgstr "Невозможно удалить игрока, он добавлен в матч"
 
-#: hockey_django_project/users/views.py:77
+#: hockey_django_project/users/views.py:83
 msgid "You have no rights to add in match user"
 msgstr "У вас нет прав добавить игрока в матч"
 
-#: hockey_django_project/users/views.py:85
-#: hockey_django_project/users/views.py:102
+#: hockey_django_project/users/views.py:91
+#: hockey_django_project/users/views.py:108
 msgid "Player successfully exit"
 msgstr "Игрок успешно вышел"
 
-#: hockey_django_project/users/views.py:87
+#: hockey_django_project/users/views.py:93
 msgid "You have no rights to delete user from match"
 msgstr "У вас нет прав удалить игрока из матча"
 
-#: hockey_django_project/users/views.py:104
+#: hockey_django_project/users/views.py:110
 msgid "You have no rights clear match"
 msgstr "У вас нет прав очистить матч"
 
